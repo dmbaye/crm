@@ -71,12 +71,19 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a href="#" class="dropdown-item">Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fa fa-user mr-2"></i>
+                                Profile
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fa fa-cog mr-2"></i>
+                                Settings
+                            </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
+                                <i class="fa fa-sign-out-alt mr-2"></i>
                                 {{ __('Logout') }}
                             </a>
 
