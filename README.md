@@ -8,6 +8,7 @@ $ composer install
 
 ## Usage
 Change the dotenv file to reflect your environment run the migrations
+
 $ php artisan migrate
 
 $ php artisan serve
