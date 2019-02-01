@@ -1,6 +1,10 @@
 <aside class="sidebar py-4">
     <h4 class="mb-4">{{ auth()->user()->friendlyName() }}</h4>
     <div>
+        <a href="{{ route('home') }}" class="{{ Request::is('/') ? 'active-link' : '' }}">
+            <i class="fa fa-home mr-3"></i>
+            Dashboard
+        </a>
         <a href="{{ route('contacts.index') }}" class="{{ Request::is('contacts') ? 'active-link' : '' }}">
             <i class="fa fa-users mr-3"></i>
             Contacts
@@ -16,6 +20,10 @@
         <a href="#">
             <i class="fa fa-tasks mr-3"></i>
             Tasks
+        </a>
+        <a href="#">
+            <i class="fa fa-chart-bar mr-3"></i>
+            Reports
         </a>
         <a href="#">
             <i class="fa fa-cog mr-3"></i>

@@ -18,6 +18,12 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+html,
+body,
+#app {
+    font-smooting: antialised;
+}
+
 .sidebar {
     background: #008080;
     color: #fff;
