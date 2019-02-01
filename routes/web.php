@@ -35,5 +35,5 @@ Route::get('/projects', 'ProjectsController@index')->name('projects.index');
 Route::get('/projects/create', 'ProjectsController@create')->name('projects.create');
 Route::get('/projects/{project}', 'ProjectsController@show')->name('projects.show');
 Route::get('/projects/{project}/edit', 'ProjectsController@edit')->name('projects.edit');
-Route::get('/projects/store', 'ProjectsController@store')->name('projects.store');
-Route::get('/projects/{project}/update', 'ProjectsController@update')->name('projects.update');
+Route::post('/projects/store', 'ProjectsController@store')->name('projects.store');
+Route::post('/projects/{project}/update', 'ProjectsController@update')->name('projects.update');
