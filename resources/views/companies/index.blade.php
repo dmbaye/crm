@@ -13,12 +13,12 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Phone Number</th>
-                        <th>Contact</th>
-                        <th>Website</th>
-                        <th>Contact Type</th>
-                        <th>Email Address</th>
+                        <th>Name <i class="fa fa-filter"></i></th>
+                        <th>Phone Number <i class="fa fa-filter"></i></th>
+                        <th>Contact <i class="fa fa-filter"></i></th>
+                        <th>Website <i class="fa fa-filter"></i></th>
+                        <th>Contact Type <i class="fa fa-filter"></i></th>
+                        <th>Email Address <i class="fa fa-filter"></i></th>
                     </tr>
                 </thead>
                 <tbody>

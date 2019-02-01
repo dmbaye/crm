@@ -13,10 +13,10 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Owned By</th>
-                        <th>Status</th>
-                        <th>Modified</th>
+                        <th>Name <i class="fa fa-filter"></i></th>
+                        <th>Owned By <i class="fa fa-filter"></i></th>
+                        <th>Status <i class="fa fa-filter"></i></th>
+                        <th>Modified <i class="fa fa-filter"></i></th>
                     </tr>
                 </thead>
                 <tbody>

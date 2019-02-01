@@ -25,6 +25,10 @@
             <i class="fa fa-chart-bar mr-3"></i>
             Reports
         </a>
+        <a href="{{ route('files.index') }}" class="{{ Request::is('file') ? 'active-link' : '' }}">
+            <i class="fa fa-file mr-3"></i>
+            Files
+        </a>
         <a href="#">
             <i class="fa fa-cog mr-3"></i>
             Settings

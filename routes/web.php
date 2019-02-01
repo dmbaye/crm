@@ -37,3 +37,6 @@ Route::get('/projects/{project}', 'ProjectsController@show')->name('projects.sho
 Route::get('/projects/{project}/edit', 'ProjectsController@edit')->name('projects.edit');
 Route::post('/projects/store', 'ProjectsController@store')->name('projects.store');
 Route::post('/projects/{project}/update', 'ProjectsController@update')->name('projects.update');
+
+Route::get('/file', 'FilesController@index')->name('files.index');
+Route::post('/files/create', 'FilesController@store')->name('files.store');
