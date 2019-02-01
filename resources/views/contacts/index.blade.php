@@ -23,7 +23,11 @@
                 <tbody>
                     @foreach ($contacts as $contact)
                         <tr>
-                            <td>{{ $contact->getName() }}</td>
+                            <td>
+                                <a href="{{ route('contacts.show', $contact) }}">
+                                    {{ $contact->getName() }}
+                                </a>
+                            </td>
                             <td>{{ $contact->title }}</td>
                             <td>{{ $contact->company_name }}</td>
                             <td>

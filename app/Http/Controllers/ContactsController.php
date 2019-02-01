@@ -43,20 +43,46 @@ class ContactsController extends Controller
         $contact->address = $request->address;
 
         if (!$contact->save()) {
-            return redirect()->back()->with('error', 'The form contains errors.');
+            return redirect()->back()
+                ->with('error', 'The form contains errors.');
         }
 
-        return redirect()->route('contacts.index')->with('success', 'Contact added successfully.');
+        return redirect()->route('contacts.index')
+            ->with('success', 'Contact added successfully.');
     }
 
     public function show(Contact $contact)
-    {}
+    {
+        $companies = Company::where('owner_id', auth()->id())->get();
+
+        return view('contacts.show', compact('contact', 'companies'));
+    }
 
     public function edit(Contact $contact)
     {}
 
-    public function update(Request $request)
-    {}
+    public function update(Request $request, Contact $contact)
+    {
+        // Validate submitted data
+
+        $contact = $contact;
+        $contact->first_name = $request->first_name;
+        $contact->middle_name = $request->middle_name;
+        $contact->last_name = $request->last_name;
+        $contact->company_name = $request->company;
+        $contact->title = $request->title;
+        $contact->email = $request->email;
+        $contact->phone_number = $request->phone_number;
+        $contact->address = $request->address;
+
+        if (!$contact->save()) {
+            return redirect()->back()
+                ->with('error', 'The form contains errors.');
+        }
+
+        return redirect()->back()
+            ->with('success', 'Contact added successfully.');
+    }
 
     public function destroy(Contact $contact)
     {}

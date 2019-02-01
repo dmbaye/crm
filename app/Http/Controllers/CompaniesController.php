@@ -44,7 +44,12 @@ class CompaniesController extends Controller
 
     public function show(Company $company)
     {
-        return view('companies.show', compact('company'));
+        $companies = Company::latest()->where('owner_id', auth()->id())->get();
+
+        return view('companies.show', [
+            'company' => $company,
+            'companies' => $companies,
+        ]);
     }
 
     public function edit(Company $company)
