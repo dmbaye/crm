@@ -52,7 +52,23 @@ class ProjectsController extends Controller
     }
 
     public function update(Request $request, Project $project)
-    {}
+    {
+        // Validate submitted data
+
+        $project = $project;
+        $project->name = $request->name;
+        $project->status = $request->status;
+        $project->description = $request->description;
+        $project->tags = $request->tags;
+
+        if (!$project->save()) {
+            return redirect()->back()
+                ->with('error', 'Please fill out the form correctly and try again.');
+        }
+
+        return redirect()->back()
+            ->with('success', 'Project updated successfully.');
+    }
 
     public function destroy(Project $project)
     {}

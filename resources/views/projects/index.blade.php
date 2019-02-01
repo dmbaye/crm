@@ -15,14 +15,20 @@
                     <tr>
                         <th>Name</th>
                         <th>Owned By</th>
+                        <th>Status</th>
                         <th>Modified</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($projects as $project)
                         <tr>
-                            <td>{{ $project->name }}</td>
+                            <td>
+                                <a href="{{ route('projects.show', $project) }}">
+                                    {{ $project->name }}
+                                </a>
+                            </td>
                             <td>{{ auth()->user()->name }}</td>
+                            <td>{{ $project->status == 0 ? 'Open' : 'Completed' }}</td>
                             <td>{{ date('d/m/Y', strtotime($project->updated_at)) }}</td>
                         </tr>
                     @endforeach
