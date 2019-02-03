@@ -16,6 +16,8 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'ProfileController@show')->name('profile.show');
+Route::post('/profile/{user}/update', 'ProfileController@update')->name('profile.update');
+Route::post('/profile/password/{user}', 'PasswordController@update')->name('password.update');
 
 Route::get('/contacts', 'ContactsController@index')->name('contacts.index');
 Route::get('/contacts/create', 'ContactsController@create')->name('contacts.create');
