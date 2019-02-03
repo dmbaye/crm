@@ -30,6 +30,16 @@ class ContactsController extends Controller
     public function store(Request $request)
     {
         // Validate user inputs
+        $this->validate($request, [
+            'first_name' => 'required|string',
+            'middle_name' => 'sometimes|string',
+            'last_name' => 'required|string',
+            'company' => 'required|string',
+            'title' => 'required|string',
+            'email' => 'required|string|email|max:255',
+            'phone_number' => 'required',
+            'address' => 'required',
+        ]);
 
         $contact = new Contact();
         $contact->owner_id = auth()->id();
@@ -64,6 +74,16 @@ class ContactsController extends Controller
     public function update(Request $request, Contact $contact)
     {
         // Validate submitted data
+        $this->validate($request, [
+            'first_name' => 'required|string',
+            'middle_name' => 'sometimes|string',
+            'last_name' => 'required|string',
+            'company' => 'required|string',
+            'title' => 'required|string',
+            'email' => 'required|string|email|max:255',
+            'phone_number' => 'required',
+            'address' => 'required',
+        ]);
 
         $contact = $contact;
         $contact->first_name = $request->first_name;
@@ -85,5 +105,15 @@ class ContactsController extends Controller
     }
 
     public function destroy(Contact $contact)
-    {}
+    {
+        $contact = $contact;
+
+        if (!$contact->delete()) {
+            return redirect()->back()
+                ->with('error', 'Unable to delete entry. Try again later.');
+        }
+
+        return redirect()->route('contacts.index')
+            ->with('success', 'Contact was deleted successfully.');
+    }
 }

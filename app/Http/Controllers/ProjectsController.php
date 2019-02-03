@@ -24,6 +24,12 @@ class ProjectsController extends Controller
     public function store(Request $request)
     {
         // Validates submitted data
+        $this->validate($request, [
+            'name' => 'required|string',
+            'status' => 'required',
+            'description' => 'required|string',
+            'tags' => 'sometimes',
+        ]);
 
         $project = new Project();
         $project->owner_id = auth()->id();
@@ -54,6 +60,12 @@ class ProjectsController extends Controller
     public function update(Request $request, Project $project)
     {
         // Validate submitted data
+        $this->validate($request, [
+            'name' => 'required|string',
+            'status' => 'required',
+            'description' => 'required|string',
+            'tags' => 'sometimes',
+        ]);
 
         $project = $project;
         $project->name = $request->name;
@@ -71,5 +83,15 @@ class ProjectsController extends Controller
     }
 
     public function destroy(Project $project)
-    {}
+    {
+        $project = $project;
+
+        if (!$project->delete()) {
+            return redirect()->back()
+                ->with('error', 'Unable to delete entry. Try again later.');
+        }
+
+        return redirect()->route('projects.index')
+            ->with('success', 'Project deleted successfully.');
+    }
 }

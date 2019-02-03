@@ -22,6 +22,17 @@ class CompaniesController extends Controller
     public function store(Request $request)
     {
         // Validate submitted data
+        $this->validate($request, [
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'phone_number' => 'required|numeric',
+            'website' => 'required|string',
+            'address' => 'required|string',
+            'city' => 'required|string',
+            'state' => 'required|string',
+            'country' => 'required|string',
+            'tags' => 'sometimes',
+        ]);
 
         $company = new Company();
         $company->owner_id = auth()->id();
@@ -60,6 +71,17 @@ class CompaniesController extends Controller
     public function update(Request $request, Company $company)
     {
         // Validate submitted data
+        $this->validate($request, [
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'phone_number' => 'required|numeric',
+            'website' => 'required|string',
+            'address' => 'required|string',
+            'city' => 'required|string',
+            'state' => 'required|string',
+            'country' => 'required|string',
+            'tags' => 'sometimes',
+        ]);
 
         $company = $company;
         $company->name = $request->name;
@@ -80,5 +102,15 @@ class CompaniesController extends Controller
     }
 
     public function destroy(Company $company)
-    {}
+    {
+        $company = $company;
+
+        if (!$company->delete()) {
+            return redirect()->back()
+                ->with('error', 'Unable to delete entry. Try again later.');
+        }
+
+        return redirect()->route('companies.index')
+                ->with('success', 'Company deleted successfully.');
+    }
 }
