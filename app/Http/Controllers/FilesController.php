@@ -19,6 +19,10 @@ class FilesController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'document' => 'required',
+        ]);
+
         $path = $request->file('document')->store('files');
 
         $file = new File();
