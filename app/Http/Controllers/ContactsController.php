@@ -76,7 +76,7 @@ class ContactsController extends Controller
         // Validate submitted data
         $this->validate($request, [
             'first_name' => 'required|string',
-            'middle_name' => 'sometimes|string',
+            'middle_name' => 'nullable|string',
             'last_name' => 'required|string',
             'company' => 'required|string',
             'title' => 'required|string',

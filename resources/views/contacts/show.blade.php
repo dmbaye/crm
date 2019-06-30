@@ -55,7 +55,7 @@
                         <div class="form-group">
                             <label for="company">Company</label>
 
-                            <input type="text" name="company" id="company" placeholder="Company" value="{{ old('company', $contact->company) }}" list="companies" class="form-control{{ $errors->has('company') ? ' is-invalid' : '' }}">
+                            <input type="text" name="company" id="company" placeholder="Company" value="{{ old('company', $contact->company_name) }}" list="companies" class="form-control{{ $errors->has('company') ? ' is-invalid' : '' }}">
 
                             <datalist id="companies">
                                 @foreach ($companies as $company)

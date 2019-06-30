@@ -32,7 +32,7 @@
                             <td>{{ $contact->company_name }}</td>
                             <td>
                                 <a href="mailto:{{ $contact->email }}">
-                                {{ $contact->email }}
+                                    {{ $contact->email }}
                                 </a>
                             </td>
                             <td>Potential Customer</td>

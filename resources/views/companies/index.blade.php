@@ -29,7 +29,11 @@
                                     {{ $company->name }}
                                 </a>
                             </td>
-                            <td>{{ $company->phone_number }}</td>
+                            <td>
+                                <a href="tel:{{ $company->phone_number }}">
+                                    {{ $company->phone_number }}
+                                </a>
+                            </td>
                             <td>-</td>
                             <td>
                                 <a href="{{ $company->website }}" target="_blank">
@@ -37,7 +41,11 @@
                                 </a>
                             </td>
                             <td>Potential Customer</td>
-                            <td>{{ $company->email }}</td>
+                            <td>
+                                <a href="mailto:{{ $company->email }}">
+                                    {{ $company->email }}
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
