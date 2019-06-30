@@ -4,8 +4,10 @@
 <div class="container">
     <div class="row justify-content-center mt-5">
         <div class="col-md-6">
-            <h1 class="text-center">
-                <a href="/">{{ config('app.name', 'Customify') }}</a>
+            <h1 class="text-center mb-5">
+                <a href="/">
+                    <img src="/images/logo.png" alt="">
+                </a>
             </h1>
             <div class="card">
                 <div class="card-body">
