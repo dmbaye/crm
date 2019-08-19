@@ -18,6 +18,11 @@ class CreateFilesTable extends Migration
             $table->unsignedInteger('owner_id');
             $table->string('path');
             $table->timestamps();
+
+            $table->foreign('owner_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 

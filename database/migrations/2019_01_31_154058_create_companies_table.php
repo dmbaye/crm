@@ -26,6 +26,11 @@ class CreateCompaniesTable extends Migration
             $table->string('address')->nullable();
             $table->string('tags')->nullable();
             $table->timestamps();
+
+            $table->foreign('owner_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 
