@@ -8,10 +8,10 @@ jobs:
     docker:
       # Specify the version you desire here
       - image: circleci/php:7.4-node-browsers
-       environment:
+        environment:
           APP_ENV: test
           DB_CONNECTION: sqlite
-          DB_DATABASE: storate/testing.sqlite
+          DB_DATABASE: storage/testing.sqlite
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
